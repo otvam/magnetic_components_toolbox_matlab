@@ -1,42 +1,45 @@
-# MATLAB Toolbox for Power Magnetic Optimization
+# MATLAB Toolbox for Power Magnetics: Model and Optimization
 
 ![license - BSD](https://img.shields.io/badge/license-BSD-green)
 ![language - MATLAB](https://img.shields.io/badge/language-MATLAB-blue)
 ![category - power electronics](https://img.shields.io/badge/category-power%20electronics-lightgrey)
 ![status - unmaintained](https://img.shields.io/badge/status-unmaintained-red)
 
-This **MATLAB tooblox** allows for the **modeling and optimization** of power **magnetic components**:
+This **MATLAB toolbox** allows for the **modeling and optimization** of power **magnetic components**:
 * medium-frequency **inductors**
 * medium-frequency **transformers**
 * computation of the **mass and volume**
 * extraction of the **equivalent circuit**
 * computation of the **core and winding losses**
+* **fast and accurate** semi-numerical methods
+* plotting of the winding and core geometries
 * brute-force **optimization** (parallel code)
 * flexible **object-oriented** design
 
 The following methods/functionalities are provided for the **core modeling**:
 * iGSE for the core losses (with locally fitted parameters from a loss map)
-* reluctance solver with 3D air gap models
+* linear reluctance solver with 3D air gap models
 * multiple air gaps are allowed
 * multiphases components are allowed
 
 The following methods/functionalities are provided for the **winding modeling**:
 * mirroring method with inductance matrix and field evaluation (with/without air gaps)
 * solid wire windings (including skin and proximity losses)
-* litz wire windings (including skin and proximity losses)
+* stranded (Litz) wire windings (including skin and proximity losses)
 * multiple air gaps are allowed
 * multiphases components are allowed
 * model of the winding heads
 
-Curently, the following **components are implemented**:
+Currently, the following **components are implemented**:
 * inductors and two-winding transformers with shell-type windings
 * U-core, C-core, and E-core
 
-However, the object-oriented design would allow an extension for:
-* multiphase transformers and multiphase chokes
+However, **additional components** can be added by implementing **abtract classes**.
+More specifically, the code could handle the following cases:
+* multiphase components (transformers or chokes)
 * other winding geometries (core-type, matrix, etc.)
 * other core geometries (ELP, RM, etc.)
-* thermal models
+* distributed airgaps
 
 ## Gallery
 
@@ -62,10 +65,10 @@ The resonant converter (SRC-DCX) is operating between 400V and 100W with a rated
 The transformer geometry (core and windings) and the operating frequency are optimized.
 
 The example consists of the following files:
-*[run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single transformer
-*[run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the transformer
-*[run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts)
-*[src_dcx_example.m](src_dcx_example.m) - definition of the parameters, materials, and waveforms
+* [run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single transformer
+* [run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the transformer
+* [run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts)
+* [src_dcx_example.m](src_dcx_example.m) - definition of the parameters, materials, and waveforms
 
 ## Toolbox Organization
 
@@ -105,10 +108,11 @@ The power magnetic toolbox contains the following packages:
 
 **Thomas Guillod** - [GitHub Profile](https://github.com/otvam)
 
+This toolbox shares some files with the following repositories:
+* [mirroring_method_matlab](https://github.com/ethz-pes/mirroring_method_matlab) - ETH Zurich, Power Electronic Systems Laboratory, T. Guillod, BSD License
+* [litz_wire_losses_fem_matlab](https://github.com/ethz-pes/litz_wire_losses_fem_matlab) - ETH Zurich, Power Electronic Systems Laboratory, T. Guillod, BSD License
+
 ## License
 
 This project is licensed under the **BSD License**, see [LICENSE.md](LICENSE.md).
 
-This project shares some files with the following repositories:
-* [mirroring_method_matlab](https://github.com/ethz-pes/mirroring_method_matlab) - BSD License
-* [litz_wire_losses_fem_matlab](https://github.com/ethz-pes/litz_wire_losses_fem_matlab) - BSD License

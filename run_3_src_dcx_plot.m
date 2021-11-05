@@ -94,7 +94,7 @@ y_hull = y(idx);
 % plot the data
 scatter(x, y, 30, c, 'filled')
 hold('on')
-plot(x_hull, y_hull, 'r')
+plot(x_hull, y_hull, 'r', 'LineWidth', 2)
 grid('on')
 xlabel(x_axis.name)
 ylabel(y_axis.name)
