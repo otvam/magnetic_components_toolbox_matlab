@@ -68,7 +68,7 @@ The example consists of the following files:
 * [run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single transformer
 * [run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the transformer
 * [run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts)
-* [src_dcx_example.m](src_dcx_example.m) - definition of the parameters, materials, and waveforms
+* [src_dcx_example](src_dcx_example) - definition of the parameters, materials, and waveforms
 
 ## Toolbox Organization
 
