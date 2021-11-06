@@ -35,7 +35,7 @@ Currently, the following **components are implemented**:
 * U-core, C-core, and E-core
 
 However, **additional components** can be added by implementing **abtract classes**.
-More specifically, the code could handle the following cases:
+More specifically, the code could handle the following cases (without modifying the core classes):
 * multiphase components (transformers or chokes)
 * other winding geometries (core-type, matrix, etc.)
 * other core geometries (ELP, RM, etc.)
@@ -73,6 +73,7 @@ The example consists of the following files:
 ## Toolbox Organization
 
 The power magnetic toolbox contains the following packages:
+* [add_path_mag_tb.m](add_path_mag_tb.m) - add the toolbox to the MATLAB path
 * [core](magnetic_toolbox/core) - core reluctance and core losses
     * [core/README.txt](magnetic_toolbox/core/README.txt) - package documentation
     * [core/DATA_STRUCT.txt](magnetic_toolbox/core/DATA_STRUCT.txt) - data format documentation
@@ -108,11 +109,10 @@ The power magnetic toolbox contains the following packages:
 
 **Thomas Guillod** - [GitHub Profile](https://github.com/otvam)
 
-This toolbox shares some files with the following repositories:
+This toolbox shares some files/ideas with the following repositories:
 * [mirroring_method_matlab](https://github.com/ethz-pes/mirroring_method_matlab) - ETH Zurich, Power Electronic Systems Laboratory, T. Guillod, BSD License
 * [litz_wire_losses_fem_matlab](https://github.com/ethz-pes/litz_wire_losses_fem_matlab) - ETH Zurich, Power Electronic Systems Laboratory, T. Guillod, BSD License
 
 ## License
 
 This project is licensed under the **BSD License**, see [LICENSE.md](LICENSE.md).
-

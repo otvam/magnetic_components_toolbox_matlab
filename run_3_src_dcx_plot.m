@@ -5,6 +5,9 @@ function run_3_src_dcx_plot()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 close('all');
+addpath('src_dcx_example')
+addpath('magnetic_toolbox')
+add_path_mag_tb(false)
 
 %% load
 data = load('src_dcx_example/src_dcx_data.mat');

@@ -7,7 +7,7 @@ function run_2_src_dcx_combine()
 close('all');
 addpath('src_dcx_example')
 addpath('magnetic_toolbox')
-add_path_toolbox(false)
+add_path_mag_tb(false)
 
 %% data
 flag.P_bus = 5e3; % power rating

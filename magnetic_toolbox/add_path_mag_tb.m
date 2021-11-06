@@ -1,8 +1,8 @@
-function add_path_toolbox(add_examples)
+function add_path_mag_tb(add_examples)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Add the toolboxes to the MATLAB path
-%     - add_path_toolbox(false) - add the toolboxes path
-%     - add_path_toolbox(true) - add the toolboxes and examples path
+% Add the magnetic toolbox to the MATLAB path
+%     - add_path_toolbox(false) - add the toolbox path
+%     - add_path_toolbox(true) - add the toolbox and examples path
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) 2021, T. Guillod, BSD License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
