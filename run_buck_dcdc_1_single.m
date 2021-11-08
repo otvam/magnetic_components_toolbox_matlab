@@ -1,5 +1,5 @@
 function run_buck_dcdc_1_single()
-% Compute a BUCK-DCDC inductor design and display the results
+% Compute a Buck DC-DC inductor design and display the results
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) 2021, T. Guillod, BSD License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,6 +23,6 @@ param.n_winding = 6;  % number of turns
 fct_solve = @(param) get_inductor_fct_solve(param, true);
 
 %% run
-data = get_sweep_single('BUCK-DCDC / single', flag, param, fct_solve);
+data = get_sweep_single('Buck DC-DC / single', flag, param, fct_solve);
 
 end

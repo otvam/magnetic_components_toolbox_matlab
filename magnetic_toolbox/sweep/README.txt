@@ -16,7 +16,6 @@
 %     - sweep_lib - general for sweeping parameters
 %     - get_sweep_combine.m - main class for the computation of multiple parameter combinations
 %     - get_sweep_single.m - main class for the computation of a single parameter combination
-%     - DATA_STRUCT.txt - documentation of the used data structures
 %     - README.txt - this file
 %
 % =================================================================================================

@@ -45,7 +45,7 @@ More specifically, the code could handle the following cases (without modifying 
 
 Two DC-DC converters are considered as examples:
 * a resonant converter (SRC-DCX) with a MF transformer
-* a bidirectional Buck converter (BUCK-DCDC) with a MF inductor
+* a bidirectional Buck converter (Buck DC-DC) with a MF inductor
 
 Both converteres are operating between 400V and 100V buses with a rated power of 5kW.
 The component geometry (core and windings) and the operating frequency are optimized.
@@ -55,7 +55,7 @@ The example consists of the following files:
     * [run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single design
     * [run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the component
     * [run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts
-* bidirectional Buck converter (BUCK-DCDC) with a MF inductor
+* bidirectional Buck converter (Buck DC-DC) with a MF inductor
     * [run_1_buck_dcdc_single.m](run_1_buck_dcdc_single.m) - modelization of a single design
     * [run_2_buck_dcdc_combine.m](run_2_buck_dcdc_combine.m) - brute-force optimization of the component
     * [run_3_buck_dcdc_plot.m](run_3_buck_dcdc_plot.m) - optimization results (Pareo fronts)
@@ -87,7 +87,7 @@ The example consists of the following files:
 ## Toolbox Organization
 
 The power magnetic toolbox contains the following packages:
-* [add_path_mag_tb.m](add_path_mag_tb.m) - add the toolbox to the MATLAB path
+* [add_path_mag_tb.m](magnetic_toolbox/add_path_mag_tb.m) - add the toolbox to the MATLAB path
 * [core](magnetic_toolbox/core) - core reluctance and core losses
     * [core/README.txt](magnetic_toolbox/core/README.txt) - package documentation
     * [core/DATA_STRUCT.txt](magnetic_toolbox/core/DATA_STRUCT.txt) - data format documentation

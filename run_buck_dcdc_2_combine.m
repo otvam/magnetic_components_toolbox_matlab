@@ -1,5 +1,5 @@
 function run_buck_dcdc_2_combine()
-% Run a Pareto optimization of a BUCK-DCDC inductor and store the results
+% Run a Pareto optimization of a Buck DC-DC inductor and store the results
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) 2021, T. Guillod, BSD License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,9 +24,9 @@ sweep{end+1} = struct('n_winding', 2:16); % number of turns
 fct_solve = @(param) get_inductor_fct_solve(param, false);
 
 %% run
-data = get_sweep_combine('BUCK-DCDC / combine', flag, sweep, fct_solve);
+data = get_sweep_combine('Buck DC-DC / combine', flag, sweep, fct_solve);
 
 %% save
-save('example_files/buck_dcdc_data.mat', '-struct', 'data', '-v7.3');
+save('example_files/data_buck_dcdc.mat', '-struct', 'data', '-v7.3');
 
 end

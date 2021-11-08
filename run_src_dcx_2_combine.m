@@ -28,6 +28,6 @@ fct_solve = @(param) get_transformer_fct_solve(param, false);
 data = get_sweep_combine('SRC-DCX / combine', flag, sweep, fct_solve);
 
 %% save
-save('example_files/src_dcx_data.mat', '-struct', 'data', '-v7.3');
+save('example_files/data_src_dcx.mat', '-struct', 'data', '-v7.3');
 
 end

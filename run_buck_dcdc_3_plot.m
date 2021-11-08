@@ -1,5 +1,5 @@
 function run_buck_dcdc_3_plot()
-% Plot the Pareto fronts of a BUCK-DCDC inductor
+% Plot the Pareto fronts of a Buck DC-DC inductor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) 2021, T. Guillod, BSD License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,7 +10,7 @@ addpath('magnetic_toolbox')
 add_path_mag_tb(false)
 
 %% load
-data = load('example_files/buck_dcdc_data.mat');
+data = load('example_files/data_buck_dcdc.mat');
 
 %% extract the data
 fom = get_extract_fom(data);
@@ -23,6 +23,6 @@ eta = struct('name', 'eta [%]', 'scale', 1e2, 'value', fom.eta, 'lim', [0.994 0.
 %% plot the Pareto fronts
 figure()
 get_plot_front(rho, eta, f_sw);
-title('BUCK-DCDC / eta-rho')
+title('Buck DC-DC / eta-rho')
 
 end

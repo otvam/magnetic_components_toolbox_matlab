@@ -10,7 +10,7 @@ addpath('magnetic_toolbox')
 add_path_mag_tb(false)
 
 %% load
-data = load('example_files/src_dcx_data.mat');
+data = load('example_files/data_src_dcx.mat');
 
 %% extract the data
 fom = get_extract_fom(data);
