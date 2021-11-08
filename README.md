@@ -63,19 +63,25 @@ The example consists of the following files:
 
 ## Gallery
 
+### Buck DC-DC Inductor
+
 <p float="middle">
     <img src="readme_img/inductor_core.png" width="350">
     <img src="readme_img/inductor_window.png" width="350">
 </p>
+
+### SRC-DCX Transformer
 
 <p float="middle">
     <img src="readme_img/transformer_core.png" width="350">
     <img src="readme_img/transformer_window.png" width="350">
 </p>
 
+### Pareto Fronts
+
 <p float="middle">
-    <img src="readme_img/src_dcx.png" width="350">
     <img src="readme_img/buck_dcdc.png" width="350">
+    <img src="readme_img/src_dcx.png" width="350">
 </p>
 
 ## Toolbox Organization

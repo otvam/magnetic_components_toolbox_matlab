@@ -18,15 +18,8 @@ c = c(idx);
 x = x(idx);
 y = y(idx);
 
-% get the convex hull
-idx = convhull(log10(x), y);
-x_hull = x(idx);
-y_hull = y(idx);
-
 % plot the data
 scatter(x, y, 30, c, 'filled')
-hold('on')
-plot(x_hull, y_hull, 'r', 'LineWidth', 2)
 
 % set axis
 grid('on')

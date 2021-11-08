@@ -18,7 +18,7 @@ tic = sim_start(name);
 [is_valid_vec, res_vec, param_vec] = get_parfor_res(n_sweep, param, fct_solve);
 
 % reorder the results
-[n_valid, res] = get_res_assemble(is_valid_vec, res_vec, param_vec);
+[n_valid, res, param] = get_res_assemble(is_valid_vec, res_vec, param_vec);
 
 % end the simulation
 duration = sim_end(name, tic);

@@ -12,12 +12,12 @@ add_path_mag_tb(false)
 %% data
 flag = get_spec_flag(); % converter specifications
 
-param.f_sw = 200e3; % switching frequency
+param.f_sw = 175e3; % switching frequency
 param.r_gap = 0.07; % relative air gap length
-param.A_core = 400e-6; % core cross section
-param.r_core = 2.5; % core aspect ratio
-param.A_litz = 10e-6; % wire copper area
-param.n_winding = 10;  % number of turns
+param.A_core = 600e-6; % core cross section
+param.r_core = 3.0; % core aspect ratio
+param.A_litz = 11e-6; % wire copper area
+param.n_winding = 6;  % number of turns
 
 %% fct for analyzing an inductor design
 fct_solve = @(param) get_inductor_fct_solve(param, true);

@@ -14,12 +14,12 @@ flag = get_spec_flag(); % converter specifications
 
 param.f_sw = 100e3; % switching frequency
 param.r_gap = 0.005; % relative air gap length
-param.A_core = 600e-6; % core cross section
-param.r_core = 2.0; % core aspect ratio
-param.A_litz_lv = 10.0e-6; % wire copper area (LV side)
-param.A_litz_hv = 2.5e-6;  % wire copper area (HV side)
-param.n_winding_lv = 4;  % number of turns (LV side)
-param.n_winding_hv = 16;  % number of turns (HV side)
+param.A_core = 750e-6; % core cross section
+param.r_core = 3.0; % core aspect ratio
+param.A_litz_lv = 14.0e-6; % wire copper area (LV side)
+param.A_litz_hv = 3.0e-6;  % wire copper area (HV side)
+param.n_winding_lv = 3;  % number of turns (LV side)
+param.n_winding_hv = 12;  % number of turns (HV side)
 
 %% fct for analyzing a transformer design
 fct_solve = @(param) get_transformer_fct_solve(param, true);

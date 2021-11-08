@@ -18,6 +18,6 @@ flag.cst_2 = pi;
 flag.cst_3 = 'c';
 
 %% run
-data_sweep = get_sweep_combine('test / sweep', flag, sweep, fct_solve);
+data = get_sweep_combine('test / sweep', flag, sweep, fct_solve);
 
 end

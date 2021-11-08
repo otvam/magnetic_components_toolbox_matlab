@@ -19,6 +19,6 @@ flag.cst_2 = pi;
 flag.cst_3 = 'a';
 
 %% run
-data_single = get_sweep_single('test / single', flag, sweep, fct_solve);
+data = get_sweep_single('test / single', flag, sweep, fct_solve);
 
 end
