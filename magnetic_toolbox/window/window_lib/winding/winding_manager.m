@@ -176,9 +176,9 @@ classdef winding_manager < handle
             x = [-window.d./2.0 +window.d./2.0];
             y = [-window.h./2.0 +window.h./2.0];
             z = [window.z_bottom_left window.z_top_left ; window.z_bottom_right window.z_top_right];
-            
+                        
             interp = griddedInterpolant({x, y}, z, 'linear', 'linear');
-            z_size = interp(x_position, y_position);
+            z_size = interp(x_position.', y_position.').';
         end
     end
 end

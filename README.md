@@ -41,6 +41,26 @@ More specifically, the code could handle the following cases (without modifying 
 * other core geometries (ELP, RM, etc.)
 * distributed airgaps
 
+## Getting Started
+
+Two DC-DC converters are considered as examples:
+* a resonant converter (SRC-DCX) with a MF transformer
+* a bidirectional Buck converter (BUCK-DCDC) with a MF inductor
+
+Both converteres are operating between 400V and 100V buses with a rated power of 5kW.
+The component geometry (core and windings) and the operating frequency are optimized.
+
+The example consists of the following files:
+* resonant converter (SRC-DCX) with a MF transformer
+    * [run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single design
+    * [run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the component
+    * [run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts
+* bidirectional Buck converter (BUCK-DCDC) with a MF inductor
+    * [run_1_buck_dcdc_single.m](run_1_buck_dcdc_single.m) - modelization of a single design
+    * [run_2_buck_dcdc_combine.m](run_2_buck_dcdc_combine.m) - brute-force optimization of the component
+    * [run_3_buck_dcdc_plot.m](run_3_buck_dcdc_plot.m) - optimization results (Pareo fronts)
+* [example_files](example_files) - definition of the parameters, materials, and waveforms
+
 ## Gallery
 
 <p float="middle">
@@ -54,21 +74,9 @@ More specifically, the code could handle the following cases (without modifying 
 </p>
 
 <p float="middle">
-    <img src="readme_img/src_dcx_volume.png" width="350">
-    <img src="readme_img/src_dcx_mass.png" width="350">
+    <img src="readme_img/src_dcx.png" width="350">
+    <img src="readme_img/buck_dcdc.png" width="350">
 </p>
-
-## Getting Started
-
-The MF transformer of a DC-DC converter is considered as an example.
-The resonant converter (SRC-DCX) is operating between 400V and 100W with a rated power of 5kW.
-The transformer geometry (core and windings) and the operating frequency are optimized.
-
-The example consists of the following files:
-* [run_1_src_dcx_single.m](run_1_src_dcx_single.m) - modelization of a single transformer
-* [run_2_src_dcx_combine.m](run_2_src_dcx_combine.m) - brute-force optimization of the transformer
-* [run_3_src_dcx_plot.m](run_3_src_dcx_plot.m) - optimization results (Pareo fronts)
-* [src_dcx_example](src_dcx_example) - definition of the parameters, materials, and waveforms
 
 ## Toolbox Organization
 

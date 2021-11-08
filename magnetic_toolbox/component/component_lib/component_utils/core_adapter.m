@@ -65,11 +65,9 @@ classdef core_adapter < handle
             
             switch self.data_add.type
                 case 'inductor'
-                    circuit.type = 'inductor';
                     circuit.is_valid = circuit_raw.is_valid;
                     circuit.L = circuit_raw.L_mag;
                 case 'transformer'
-                    circuit.type = 'transformer';
                     circuit.is_valid = circuit_raw.is_valid;
                     circuit.L_mag.lv = circuit_raw.L_mag.lv;
                     circuit.L_mag.hv = circuit_raw.L_mag.hv;

@@ -12,22 +12,23 @@ function data = get_sweep_combine(name, flag, sweep, fct_solve)
 tic = sim_start(name);
 
 % span the design parameters
-[n_sweep, param] = get_sweep_span(sweep);
+[n_sweep, param] = get_sweep_span(flag, sweep);
 
 % compute the designs
-res_vec = get_parfor_res(n_sweep, param, flag, fct_solve);
+[is_valid_vec, res_vec, param_vec] = get_parfor_res(n_sweep, param, fct_solve);
 
 % reorder the results
-res = get_res_assemble(res_vec);
+[n_valid, res] = get_res_assemble(is_valid_vec, res_vec, param_vec);
 
 % end the simulation
 duration = sim_end(name, tic);
 
 % data
 data.name = name;
+data.flag = flag;
 data.sweep = sweep;
 data.n_sweep = n_sweep;
-data.flag = flag;
+data.n_valid = n_valid;
 data.param = param;
 data.res = res;
 data.duration = duration;

@@ -7,17 +7,18 @@ function test_sweep_single()
 close('all');
 
 %% data
-fct_solve = @(flag,sweep) get_fct_solve(flag, sweep);
+fct_solve = @(param) get_fct_solve(param);
 
-param = struct();
-param.param_1 = 1;
-param.param_2 = 'a';
-param.param_3 = 1;
+sweep = struct();
+sweep.param_1 = 1;
+sweep.param_2 = 'a';
+sweep.param_3 = 1;
 
 flag.cst_1 = 1.0;
 flag.cst_2 = pi;
+flag.cst_3 = 'a';
 
 %% run
-data_single = get_sweep_single('test / single', flag, param, fct_solve);
+data_single = get_sweep_single('test / single', flag, sweep, fct_solve);
 
 end

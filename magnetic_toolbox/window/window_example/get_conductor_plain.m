@@ -13,8 +13,9 @@ conductor.sigma.alpha = 3.93e-3;
 conductor.sigma.T_ref = 20.0;
 
 conductor.mu = 1.0;
+conductor.rho = 8960.0;
+
 conductor.d_c = d_c;
 
-conductor.rho = 8960.0;
 
 end

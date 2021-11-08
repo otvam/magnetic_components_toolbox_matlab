@@ -45,7 +45,7 @@ classdef core_steinmetz_losses < handle
             %     - B_vec - vector with the piecewise linear flux density
             %     - P - scalar with the losses
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            
+                                     
             % find the time intervals
             d_vec_diff = [diff(d_vec) 1.0-d_vec(end)+d_vec(1)];
             t_vec_diff = d_vec_diff./f;

@@ -1,8 +1,8 @@
-function data = get_sweep_single(name, flag, param, fct_solve)
+function data = get_sweep_single(name, flag, sweep, fct_solve)
 % Run a simulation for a single parameter combination
 %     - name - name of the simulation
 %     - flag - struct with the parameters which are not part of the sweeps
-%     - param - struct with the parameter definition (single combination)
+%     - sweep - struct with the parameter definition (single combination)
 %     - fct_solve - function handler for solving the problem
 %     - data - struct with the simulation data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12,10 +12,18 @@ function data = get_sweep_single(name, flag, param, fct_solve)
 % init the simulation
 tic = sim_start(name);
 
-% solve the design
-disp('solve')
+% merge data
+disp('create parameters')
 
-res = fct_solve(flag, param);
+field = [fieldnames(flag);fieldnames(sweep)];
+value = [struct2cell(flag); struct2cell(sweep)];
+param = cell2struct(value, field);
+
+% solve the design
+disp('solve problem')
+
+[is_valid, res] = fct_solve(param);
+assert(is_valid==true, 'invalid data')
 
 % end the simulation
 duration = sim_end(name, tic);
