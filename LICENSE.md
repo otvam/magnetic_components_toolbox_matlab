@@ -1,4 +1,4 @@
-Copyright (c) 2020-2021 Thomas Guillod.
+Copyright (c) 2021 Thomas Guillod.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
