@@ -84,6 +84,8 @@ function flag_out = get_flag_sub(n_sweep, flag)
 %     - flag_out - struct of vectors/cells
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+flag_out = struct();
+
 field = fieldnames(flag);
 for i=1:length(field)
    value = flag.(field{i});
