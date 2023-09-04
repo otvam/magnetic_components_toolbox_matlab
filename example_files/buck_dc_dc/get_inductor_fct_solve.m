@@ -28,10 +28,12 @@ losses = obj.get_losses(stress);
 
 % get the volume and mass
 V = obj.get_box_volume();
+A = obj.get_box_area();
 m = obj.get_box_mass();
 
 % assign results
 res.V = V;
+res.A = A;
 res.m = m;
 res.losses = losses;
 res.circuit = circuit;
@@ -64,6 +66,7 @@ fprintf('        A_litz = %.3f mm2\n', 1e6.*param.A_litz)
 fprintf('        n_winding = %d\n', param.n_winding)
 fprintf('    volume/mass\n')
 fprintf('        V = %.3f dm3\n', 1e3.*res.V)
+fprintf('        A = %.3f dm2\n', 1e2.*res.A)
 fprintf('        m = %.3f kg\n', 1e0.*res.m)
 fprintf('    circuit\n')
 fprintf('        is_valid = %s\n', mat2str(res.circuit.is_valid))
