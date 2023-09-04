@@ -13,7 +13,7 @@ add_path_mag_tb(false)
 data = load('example_files/data_src_dcx.mat');
 
 %% extract the data
-fom = get_extract_fom(data);
+[fom, fct_disp] = get_extract_fom(data);
 
 %% define the variables for plotting
 f_sw = struct('name', 'f_{sw} [kHz]', 'scale', 1e-3, 'value', fom.f_sw, 'lim', [50e3 200e3]);
@@ -21,8 +21,9 @@ rho = struct('name', 'rho [kW/dm3]', 'scale', 1e-6, 'value', fom.rho, 'lim', [10
 eta = struct('name', 'eta [%]', 'scale', 1e2, 'value', fom.eta, 'lim', [0.994 0.999]);
 
 %% plot the Pareto fronts
-figure()
-get_plot_front(rho, eta, f_sw);
+fig = figure();
+sca = get_plot_front(rho, eta, f_sw);
+get_plot_cursor(fig, sca, fom, fct_disp);
 title('SRC-DCX / eta-rho / volume')
 
 end

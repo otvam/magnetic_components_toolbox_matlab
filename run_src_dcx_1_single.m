@@ -28,3 +28,16 @@ fct_solve = @(param) get_transformer_fct_solve(param, true);
 data = get_sweep_single('SRC-DCX / single', flag, param, fct_solve);
 
 end
+
+function txt = get_disp(fom)
+% Plot the a Pareto front
+%     - fom - struct with the figures of merit
+%     - txt - cell with the data cursor content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+txt = {};
+txt{end+1} = sprintf('f_sw = %.3f kHz', 1e-3.*fom.f_sw);
+txt{end+1} = sprintf('rho = %.3f kW/dm3', 1e-6.*fom.rho);
+txt{end+1} = sprintf('eta = %.3f %%', 1e2.*fom.eta);
+
+end
