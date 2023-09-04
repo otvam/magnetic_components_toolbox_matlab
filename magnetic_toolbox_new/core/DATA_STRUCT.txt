@@ -1,0 +1,83 @@
+% =================================================================================================
+% Definition of the data format
+% =================================================================================================
+%
+% =================================================================================================
+% class definition
+% =================================================================================================
+%
+% class.core_component_class = fct --- function handler (class) for the component type
+%       @core_component_transformer --- transformer is used as component
+%       @core_component_inductor --- inductor is used as component
+% class.core_geom_class = fct --- function handler (class) for the core geometry
+%       @core_geom_C_type --- C core shape
+%       @core_geom_E_type --- E core shape
+%
+% =================================================================================================
+% material definition
+% =================================================================================================
+%
+% properties:
+%       material.mu_domain = double --- air material permeability
+%       material.mu_core = double --- core material permeability
+%       material.rho = double --- core material mass density
+%
+% ranges:
+%       material.losses_map.T.vec = row --- vector with the temperature sample points
+%       material.losses_map.T.range = double --- vector with two elements with the lower and upper temperature bounds for extrapolation
+%       material.losses_map.f.vec = row --- vector with the frequency sample points
+%       material.losses_map.f.range = double --- vector with two elements with the lower and upper frequency bounds for extrapolation
+%       material.losses_map.B_peak.vec = row --- vector with the AC peak flux density sample points
+%       material.losses_map.B_peak.range = double --- vector with two elements with the lower and upper AC peak flux density bounds for extrapolation
+%       material.losses_map.B_dc.vec = row --- vector with the DC flux density sample points
+%       material.losses_map.B_dc.range = double --- vector with two elements with the lower and upper DC peak density bounds for extrapolation
+%
+% loss map:
+%       material.losses_map.interp_T_B_dc.method = str --- interpolation method for the temperature and DC flux ('linear' or 'nearest')
+%       material.losses_map.interp_T_B_dc.extrap = str --- extrapolation method for the temperature and DC flux ('linear' or 'nearest')
+%       material.losses_map.interp_f_B_peak.method = str --- interpolation method for the frequency and AC flux ('linear' or 'nearest')
+%       material.losses_map.interp_f_B_peak.extrap = str --- extrapolation method for the frequency and AC flux ('linear' or 'nearest')
+%       losses_map.P_f_B_peak_B_dc_T = matrix --- multi-dimensional matrix with the loss density (f, B_peak, B_dc, T as dimension)
+%
+% =================================================================================================
+% geom definition
+% =================================================================================================
+%
+% geometry:
+%       geom.d_window = double --- height of the winding window
+%       geom.h_window = double --- width of the winding window
+%       geom.t_core = double --- thickness of the core (one limb)
+%       geom.z_core = double --- size of the core in the third dimension
+%       geom.d_gap = double --- geometrical distance between the two half-cores
+%
+% =================================================================================================
+% winding definition
+% =================================================================================================
+%
+% inductor:
+%       winding = double --- number of turns
+%
+% inductor:
+%       winding.lv = double --- number of turns of the LV winding
+%       winding.hv = double --- number of turns of the HV winding
+%
+% =================================================================================================
+% stress definition
+% =================================================================================================
+%
+% generic stress:
+%       stress.f = double --- fundamental frequency of the excitation
+%       stress.T = double --- temperature of the core
+%       stress.d_vec = row --- vector with the normalized (over the period) time vector for the currents in time domain
+%       stress.current = struct/row --- vector or struct with the currents in the time domain
+%
+% current for inductor:
+%       current = row --- vector with the peak currents in the time domain (as defined in 'd_vec')
+%
+% current for transformer:
+%       current.lv = row --- vector with the peak currents in the time domain for the LV winding (as defined in 'd_vec')
+%       current.hv = row --- vector with the peak currents in the time domain for the HV winding (as defined in 'd_vec')
+%
+% =================================================================================================
+% (c) 2021, T. Guillod, BSD License
+% =================================================================================================

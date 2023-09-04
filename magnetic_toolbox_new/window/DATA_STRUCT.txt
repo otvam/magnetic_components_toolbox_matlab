@@ -1,0 +1,100 @@
+% =================================================================================================
+% Definition of the data format
+% =================================================================================================
+%
+% =================================================================================================
+% class definition
+% =================================================================================================
+%
+% class.window_component_class = fct --- function handler (class) for the component type
+%       @window_component_transformer --- transformer is used as component
+%       @window_component_inductor --- inductor is used as component
+% class.window_geom_class = fct --- function handler (class) for the window/core geometry
+%       @window_geom_core --- window is completely enclosed by a core (2 air gaps)
+%       @window_geom_core_head --- window on the side of the core (1 air gap)
+%       @window_geom_head --- window not near a core (0 air gap)
+%
+% =================================================================================================
+% conductor definition
+% =================================================================================================
+%
+% material:
+%       conductor.sigma.rho = double --- conductor material resistivity
+%       conductor.sigma.alpha = double --- conductor material temperature coefficient
+%       conductor.sigma.T_ref = double --- conductor material reference temperature for the resistivity
+%       conductor.mu = double --- conductor material permeability
+%       conductor.rho = double --- conductor material mass density
+%
+% geometry:
+%       conductor.d_c = double --- conductor diameter
+%       conductor.type = str --- type of wire ('plain' or 'litz')
+%       conductor.d_litz = double --- diameter of the strands (only for 'litz' type)
+%       conductor.n_litz = integer --- number of the strands (only for 'litz' type)
+%
+% =================================================================================================
+% core definition
+% =================================================================================================
+%
+% core:
+%       core.mu_core = double --- permeability of the core
+%       core.mu_domain = double --- permeability of the domain
+%       geom.n_mirror = integer --- number of the mirroring step for the field computation
+%       geom.d_pole = double --- pole distance for the inductance computation of ill-formulated problem
+%       core.d_core = double --- space between the core and the winding
+%
+% =================================================================================================
+% window definition
+% =================================================================================================
+%
+% geometry:
+%       window.d = double --- height of the winding window
+%       window.h = double --- width of the winding window
+%       window.z_mean = double --- mean length of the winding window
+%       window.z_top_left = double --- length of the top/left side of the window
+%       window.z_top_right = double --- length of the top/right side of the window
+%       window.z_bottom_left = double --- length of the bottom/left side of the window
+%       window.z_bottom_right = double --- length of the bottom/right side of the window
+%
+% =================================================================================================
+% winding definition
+% =================================================================================================
+%
+% generic winding:
+%       winding_tmp.conductor = struct --- conductor data structure
+%       winding_tmp.external = struct('type', 'd_shift', 'h_shift') --- position of the winding with respect to the winding window
+%               type = str --- anchor position ('right', 'left', 'top', 'bottom', 'center')
+%               d_shift = double --- horizontal shift between the anchor and the winding
+%               h_shift = double --- vertical shift between the anchor and the winding
+%       winding_tmp.external = struct('n_winding', 'n_par', 't_layer', 't_turn', 'orientation') --- definition of the winding geometry
+%               n_winding = row --- vector with the number of conductor per layer (magnetic number of turn is n_winding/n_par)
+%               n_par = integer --- number of parallel connected conductors (for losses and inductance computation)
+%               t_layer = double --- insulation distance between the layers
+%               t_turn = double --- insulation distance between the conductors inside a layer
+%               orientation = str --- orientation of the layers ('horizontal' or 'vertical')
+% 
+% winding for inductor:
+%       winding = struct --- generic winding data structure
+%
+% winding for transformer:
+%       winding.lv = struct --- generic winding data structure for the LV winding
+%       winding.hv = struct --- generic winding data structure for the HV winding
+%
+% =================================================================================================
+% stress definition
+% =================================================================================================
+%
+% generic stress:
+%       stress.f_vec = row --- vector with the frequencies used for the frequency domain current definition
+%       stress.T = double --- temperature of the windings
+%       stress.current = struct/row --- vector or struct with the peak currents in the frequency domain
+%
+% current for inductor:
+%       current = row --- vector with the peak currents in the frequency domain (as defined in 'f')
+%
+% current for transformer:
+%       current.lv = row --- vector with the peak currents in the frequency domain for the LV winding (as defined in 'f')
+%       current.hv = row --- vector with the peak currents in the frequency domain for the HV winding (as defined in 'f')
+%
+% =================================================================================================
+% (c) 2021, T. Guillod, BSD License
+% =================================================================================================

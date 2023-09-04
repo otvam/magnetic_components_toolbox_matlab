@@ -68,6 +68,7 @@ obj = component_class(class, core, winding);
 type = obj.get_type();
 V = obj.get_active_volume();
 V = obj.get_box_volume();
+A = obj.get_box_area();
 m = obj.get_box_mass();
 m = obj.get_active_mass();
 fig = obj.get_plot();

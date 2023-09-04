@@ -1,9 +1,9 @@
 % =================================================================================================
-% Definition of a transformer with a E-core (shell type windings).
+% Definition of a standard inductor with a E-core.
 % =================================================================================================
 %
-% Transformer with two windings.
-% Transformer with a E-core.
+% Inductor with one winding.
+% Inductor with a E-core.
 %
 % =================================================================================================
 %
@@ -13,10 +13,10 @@
 % =================================================================================================
 % (c) 2021, T. Guillod, BSD License
 % =================================================================================================
-classdef transformer_E_type < component_type_abstract
+classdef inductor_E_type < component_type_abstract
     %% init
     methods (Access = public)
-        function self = transformer_E_type(core, winding)
+        function self = inductor_E_type(core, winding)
             % create the object
             %     - core - struct with the core geometry and material
             %     - winding - struct with the winding geometry and material
@@ -25,7 +25,7 @@ classdef transformer_E_type < component_type_abstract
             self = self@component_type_abstract(core, winding);
             
             % get the core window
-            data_add = struct('type', 'transformer', 'geom', 'core', 'z_mean', 2.0.*self.core.z_core, 'z_left', 2.0.*self.core.z_core, 'z_right', 2.0.*self.core.z_core, 'd_core', 0.0);
+            data_add = struct('type', 'inductor', 'geom', 'core', 'z_mean', 2.0.*self.core.z_core, 'z_left', 2.0.*self.core.z_core, 'z_right', 2.0.*self.core.z_core, 'd_core', 0.0);
             self.window_adapter_obj.core = window_adapter(self.core, self.winding, data_add);
             
             % get the window size
@@ -33,15 +33,15 @@ classdef transformer_E_type < component_type_abstract
             assert(self.core.t_core>=2.0.*self.core.r_window, 'invalid data')
             z_left = 2.0.*pi.*self.core.r_window+2.0.*(self.core.t_core-2.0.*self.core.r_window);
             z_right = 2.0.*pi.*(self.core.r_window+self.window.d)+2.0.*(self.core.t_core-2.0.*self.core.r_window);
-            z_mean = (z_left+z_right)./2.0;
+            z_mean = (z_right+z_left)./2.0;
             d_core = self.core.r_window;
             
             % get the winding head at the turn
-            data_add = struct('type', 'transformer', 'geom', 'core_head', 'z_mean', z_mean, 'z_left', z_left, 'z_right', z_right, 'd_core', d_core);
+            data_add = struct('type', 'inductor', 'geom', 'core_head', 'z_mean', z_mean, 'z_left', z_left, 'z_right', z_right, 'd_core', d_core);
             self.window_adapter_obj.head_turn = window_adapter(self.core, self.winding, data_add);
             
             % get the core
-            data_add = struct('type', 'transformer', 'geom', 'E_type', 'd_window', self.window.d, 'h_window', self.window.h);
+            data_add = struct('type', 'inductor', 'geom', 'E_type', 'd_window', self.window.d, 'h_window', self.window.h);
             self.core_adapter_obj = core_adapter(self.core, self.winding, data_add);
         end
     end
@@ -53,7 +53,7 @@ classdef transformer_E_type < component_type_abstract
             %     - type - string with the component type
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
-            type = 'transformer';
+            type = 'inductor';
         end
         
         function [d, h, z] = get_box_dim(self)

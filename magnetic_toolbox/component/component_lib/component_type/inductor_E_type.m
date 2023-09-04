@@ -56,18 +56,16 @@ classdef inductor_E_type < component_type_abstract
             type = 'inductor';
         end
         
-        function V = get_box_volume(self)
-            % get the box volume of the component
-            %     - V - scalar with the box volume
+        function [d, h, z] = get_box_dim(self)
+            % get the box dimension of the component
+            %     - d - box width
+            %     - h - box height
+            %     - z - box tickness
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
-            % core
             h = self.window.h+self.core.t_core;
             d = 2.0.*self.window.d+2.0.*self.core.t_core;
             z = self.core.z_core+2.0.*(self.window.d+self.core.r_window);
-            
-            % volume
-            V = d.*h.*z;
         end
     end
 end
