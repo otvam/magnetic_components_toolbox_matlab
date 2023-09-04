@@ -7,16 +7,22 @@ function test_sweep_single()
 close('all');
 
 %% data
+
+% function solving the problem
 fct_solve = @(param) get_fct_solve(param);
 
+% sweep data
 sweep = struct();
-sweep.param_1 = 1;
-sweep.param_2 = 'a';
-sweep.param_3 = 1;
+sweep.param_0 = 2;
+sweep.param_1 = 11;
+sweep.param_2i = 2;
+sweep.param_2c = 'a';
 
-flag.cst_1 = 1.0;
-flag.cst_2 = pi;
-flag.cst_3 = 'a';
+% constant data
+flag.cst_0 = 1.0;
+flag.cst_1 = 2.0;
+flag.cst_2i = pi;
+flag.cst_2c = 'cst';
 
 %% run
 data = get_sweep_single('test / single', flag, sweep, fct_solve);

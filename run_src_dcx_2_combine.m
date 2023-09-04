@@ -21,11 +21,13 @@ sweep{end+1} = struct('A_litz_lv', logspace(log10(5e-6), log10(20e-6), 8)); % wi
 sweep{end+1} = struct('A_litz_hv', logspace(log10(1.5e-6), log10(5e-6), 8)); % wire copper area (HV side)
 sweep{end+1} = struct('n_winding_lv', 2:10, 'n_winding_hv', 8:4:40); % number of turns (LV and MV side) / 1:4 ratio
 
+n_split = 100; % number of data per chunk
+
 %% fct for analyzing a transformer design
 fct_solve = @(param) get_transformer_fct_solve(param, false);
 
 %% run
-data = get_sweep_combine('SRC-DCX / combine', flag, sweep, fct_solve);
+data = get_sweep_combine('SRC-DCX / combine', n_split, flag, sweep, fct_solve);
 
 %% save
 save('example_files/data_src_dcx.mat', '-struct', 'data', '-v7.3');
