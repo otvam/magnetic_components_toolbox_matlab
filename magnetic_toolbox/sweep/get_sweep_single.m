@@ -23,7 +23,6 @@ param = cell2struct(value, field);
 disp('solve problem')
 
 [is_valid, res] = fct_solve(param);
-assert(is_valid==true, 'invalid data')
 
 n_sweep = 1;
 n_valid = 1;
@@ -38,6 +37,7 @@ data.sweep = sweep;
 data.n_sweep = n_sweep;
 data.n_valid = n_valid;
 data.param = param;
+data.is_valid = is_valid;
 data.res = res;
 data.duration = duration;
 

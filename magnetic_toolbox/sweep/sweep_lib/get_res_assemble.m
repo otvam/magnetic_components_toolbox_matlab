@@ -23,8 +23,13 @@ res_vec = [res_vec{:}];
 param_vec = [param_vec{:}];
 
 % reorder the array
-res = get_struct_sub(res_vec);
-param = get_struct_sub(param_vec);
+if n_valid==0
+    res = struct();
+    param = struct();
+else
+    res = get_struct_sub(res_vec);
+    param = get_struct_sub(param_vec);
+end
 
 % display
 disp(['    n_sweep = ' num2str(n_sweep)])

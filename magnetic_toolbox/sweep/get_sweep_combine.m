@@ -1,6 +1,7 @@
-function data = get_sweep_combine(name, flag, sweep, fct_solve)
+function data = get_sweep_combine(name, n_split, flag, sweep, fct_solve)
 % Run a simulation for multiple parameter combinations
 %     - name - name of the simulation
+%     - n_split - number of data per chunk
 %     - flag - struct with the parameters which are not part of the sweeps
 %     - sweep - sweep - cell of struct with the parameter combination definition
 %     - fct_solve - function handler for solving the problem
@@ -15,7 +16,7 @@ tic = sim_start(name);
 [n_sweep, param] = get_sweep_span(flag, sweep);
 
 % compute the designs
-[is_valid_vec, res_vec, param_vec] = get_parfor_res(n_sweep, param, fct_solve);
+[is_valid_vec, res_vec, param_vec] = get_parfor_res(n_sweep, n_split, param, fct_solve);
 
 % reorder the results
 [n_valid, res, param] = get_res_assemble(is_valid_vec, res_vec, param_vec);

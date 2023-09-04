@@ -38,8 +38,6 @@ function [n_sweep, sweep_out] = get_sweep_sub(sweep)
 %     - sweep_out - struct with the parameter combinations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-disp('create parameters')
-
 % get the sweep indexes
 for i=1:length(sweep)
     field = fieldnames(sweep{i});

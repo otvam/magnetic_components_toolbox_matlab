@@ -17,7 +17,7 @@ param.r_gap = 0.07; % relative air gap length
 param.A_core = 600e-6; % core cross section
 param.r_core = 3.0; % core aspect ratio
 param.A_litz = 11e-6; % wire copper area
-param.n_winding = 6;  % number of turns
+param.n_winding = 60;  % number of turns
 
 %% fct for analyzing an inductor design
 fct_solve = @(param) get_inductor_fct_solve(param, true);
