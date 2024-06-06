@@ -47,7 +47,7 @@ is_valid = is_valid&&(J_rms>2e6);
 is_valid = is_valid&&(J_rms<20e6);
 is_valid = is_valid&&(ripple<3.0);
 is_valid = is_valid&&(B_ac_pk>5e-3);
-is_valid = is_valid&&(B_ac_pk<3000e-3);
+is_valid = is_valid&&(B_ac_pk<200e-3);
 is_valid = is_valid&&(B_max>100e-3);
 is_valid = is_valid&&(B_max<350e-3);
 
