@@ -26,9 +26,14 @@ classdef core_steinmetz_map < handle
             %     - losses_map - struct with the loss map
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
+            % fix scalar dimensions
+
             % set the data
             self.losses_map = losses_map;
-            
+
+            % expand singleton
+            self.init_expand_losses_map();
+
             % check data
             self.init_check_losses_map();
         end
@@ -66,6 +71,30 @@ classdef core_steinmetz_map < handle
     
     %% private api - check data
     methods (Access = private)
+        function init_expand_losses_map(self)
+            % expand singleton dimension for temperature and DC flux density
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            T_vec = self.losses_map.T.vec;
+            B_dc_vec = self.losses_map.B_dc.vec;
+            P_f_B_peak_B_dc_T = self.losses_map.P_f_B_peak_B_dc_T;
+
+            if isscalar(T_vec)
+                eps_tmp = eps(T_vec);
+                T_vec = [T_vec-eps_tmp T_vec+eps_tmp];
+                P_f_B_peak_B_dc_T = repmat(P_f_B_peak_B_dc_T, 1, 1, 1, 2);
+            end
+            if isscalar(B_dc_vec)
+                eps_tmp = eps(B_dc_vec);
+                B_dc_vec = [B_dc_vec-eps_tmp B_dc_vec+eps_tmp];
+                P_f_B_peak_B_dc_T = repmat(P_f_B_peak_B_dc_T, 1, 1, 2, 1);
+            end
+
+            self.losses_map.T.vec = T_vec;
+            self.losses_map.B_dc.vec = B_dc_vec;
+            self.losses_map.P_f_B_peak_B_dc_T = P_f_B_peak_B_dc_T;
+        end
+
         function init_check_losses_map(self)
             % check the validity of the loss map
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,10 +116,10 @@ classdef core_steinmetz_map < handle
             % check the validity of the sample points and of the range
             %     - limit - struct with the sample vector and the range
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            
+
             validateattributes(limit.range, {'double'},{'row', 'increasing','nonnegative', 'nonempty', 'nonnan', 'real','finite'});
-            assert(length(limit.range)==2, 'invalid data');
-            
+            assert(length(limit.range)>=2, 'invalid data');
+
             validateattributes(limit.vec, {'double'},{'row', 'increasing','nonnegative', 'nonempty', 'nonnan', 'real','finite'});
             assert(length(limit.vec)>=2, 'invalid data');
         end
