@@ -1,24 +1,24 @@
 % =================================================================================================
-% Core properties (mu, rho) and losses (bases on mapping and GSE and IGSE).
+% Core properties (mu, rho) and losses (bases on mapping and SE and IGSE).
 % =================================================================================================
 %
 % Manage the core properties, including:
 %     - mu (permeability)
 %     - rho (density)
-%     - losses (GSE and IGSE)
+%     - losses (SE and IGSE)
 %
 % The losses are based on a loss map (f, B_peak, B_dc, T).
 % The DC flux density and the temperature are linealy interpolated from the loss map.
-% The AC flux density and the frequency are fitted using the GSE (nearest point in the loss map).
+% The AC flux density and the frequency are fitted using the SE (nearest point in the loss map).
 % Extrapolation outside the loss map is possible (protection mechanisms are implementes)
 %
 % The losses can be computed with the obtained steinmetz parameters using:
-%     - GSE for sinusoidal flux
+%     - SE for sinusoidal flux
 %     - IGSE for arbitrary flux shape
 %
 % =================================================================================================
 %
-% Warning: The GSE and IGSE are empirical models with a very limited range.
+% Warning: The SE and IGSE are empirical models with a very limited range.
 %          Extrapolation should be done with care.
 %
 % Warning: Magnetic relaxation is not considered since such models are difficult to parametrize.
@@ -121,8 +121,8 @@ classdef core_material < handle
             param = self.core_steinmetz_obj.get_param(f, B_peak, B_dc, T);
         end
         
-        function losses = get_losses_gse(self, f, B_peak, B_dc, T)
-            % get the losses density computed with the GSE (sinusoidal flux)
+        function losses = get_losses_se(self, f, B_peak, B_dc, T)
+            % get the losses density computed with the SE (sinusoidal flux)
             %     - f - scalar with the frequency
             %     - B_peak - scalar with the peak flux density
             %     - B_dc - scalar with the DC flux density
@@ -130,7 +130,7 @@ classdef core_material < handle
             %     - losses - struct with the losses
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
-            losses = self.core_steinmetz_obj.get_losses_gse(f, B_peak, B_dc, T);
+            losses = self.core_steinmetz_obj.get_losses_se(f, B_peak, B_dc, T);
         end
         
         function losses = get_losses_igse(self, f, d_vec, B_vec, T)

@@ -1,9 +1,9 @@
 % =================================================================================================
-% Compute the loss map and the losses using GSE and IGSE.
+% Compute the loss map and the losses using SE and IGSE.
 % =================================================================================================
 %
 % Manage the losses map.
-% Compute the losses with GSE.
+% Compute the losses with SE.
 % Compute the losses with IGSE.
 %
 % =================================================================================================
@@ -65,8 +65,8 @@ classdef core_steinmetz < handle
             param = self.core_steinmetz_map_obj.get_param(f, B_peak, B_dc, T);
         end
         
-        function losses = get_losses_gse(self, f, B_peak, B_dc, T)
-            % get the losses density computed with the GSE (sinusoidal flux)
+        function losses = get_losses_se(self, f, B_peak, B_dc, T)
+            % get the losses density computed with the SE (sinusoidal flux)
             %     - f - scalar with the frequency
             %     - B_peak - scalar with the peak flux density
             %     - B_dc - scalar with the DC flux density
@@ -85,7 +85,7 @@ classdef core_steinmetz < handle
             
             % compute losses
             losses.is_valid = param.is_valid;
-            losses.P = self.core_steinmetz_losses_obj.get_P_gse(param, f, B_peak);
+            losses.P = self.core_steinmetz_losses_obj.get_P_se(param, f, B_peak);
         end
         
         function losses = get_losses_igse(self, f, d_vec, B_vec, T)

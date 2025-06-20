@@ -189,9 +189,9 @@ classdef core_steinmetz_map < handle
             %     - P_f_B_peak - matrix with the interpolated parameters
             %     - f - scalar with the frequency
             %     - B_peak - scalar with the peak flux density
-            %     - alpha - GSE parameter
-            %     - beta - GSE parameter
-            %     - k - GSE parameter
+            %     - alpha - SE parameter
+            %     - beta - SE parameter
+            %     - k - SE parameter
             %     - ki - IGSE parameter
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
@@ -228,8 +228,8 @@ classdef core_steinmetz_map < handle
             %     - f_vec - vector with the two frequency points
             %     - B_peak_vec - vector with the two flux density points
             %     - P_f_B_peak_mat - matrix with the four corresponding losses
-            %     - alpha_vec - vector with the GSE parameter
-            %     - beta_vec - vector with the GSE parameter
+            %     - alpha_vec - vector with the SE parameter
+            %     - beta_vec - vector with the SE parameter
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
             f_0 = f_vec(1);
@@ -250,9 +250,9 @@ classdef core_steinmetz_map < handle
             %     - f_vec - vector with the two frequency points
             %     - B_peak_vec - vector with the two flux density points
             %     - P_f_B_peak_mat - matrix with the four corresponding losses
-            %     - alpha - GSE parameter
-            %     - beta - GSE parameter
-            %     - k_mat - matrix with the GSE parameter
+            %     - alpha - SE parameter
+            %     - beta - SE parameter
+            %     - k_mat - matrix with the SE parameter
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             
             f_mat = [f_vec.' f_vec.'];
@@ -262,9 +262,9 @@ classdef core_steinmetz_map < handle
         
         function ki = compute_steinmetz_ki(self, alpha, beta, k)
             % get the IGSE parameter ki
-            %     - alpha - GSE parameter
-            %     - beta - GSE parameter
-            %     - k - GSE parameter
+            %     - alpha - SE parameter
+            %     - beta - SE parameter
+            %     - k - SE parameter
             %     - ki - IGSE parameter
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             

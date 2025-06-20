@@ -1,5 +1,5 @@
 function test_core_material()
-% Test the loss map, GSE, and IGSE for a typical magnetic core material
+% Test the loss map, SE, and IGSE for a typical magnetic core material
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (c) 2021, T. Guillod, BSD License
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,7 +26,7 @@ d_vec = [0.25 0.75];
 B_vec = B_dc+[-B_peak +B_peak];
 
 param = obj.get_param(f, B_peak, B_dc, T);
-losses = obj.get_losses_gse(f, B_peak, B_dc, T);
+losses = obj.get_losses_se(f, B_peak, B_dc, T);
 losses = obj.get_losses_igse(f, d_vec, B_vec, T);
 
 end

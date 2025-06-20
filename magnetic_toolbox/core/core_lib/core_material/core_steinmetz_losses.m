@@ -1,8 +1,8 @@
 % =================================================================================================
-% Compute the losses using GSE and IGSE.
+% Compute the losses using SE and IGSE.
 % =================================================================================================
 %
-% Compute the losses with GSE.
+% Compute the losses with SE.
 % Compute the losses with IGSE.
 %
 % =================================================================================================
@@ -26,8 +26,8 @@ classdef core_steinmetz_losses < handle
     
     %% public api
     methods (Access = public)
-        function P = get_P_gse(self, param, f, B_peak)
-            % get the losses density computed with the GSE (sinusoidal flux)
+        function P = get_P_se(self, param, f, B_peak)
+            % get the losses density computed with the SE (sinusoidal flux)
             %     - param - struct with the steinmetz parameters
             %     - f - scalar with the frequency
             %     - B_peak - scalar with the peak flux density
