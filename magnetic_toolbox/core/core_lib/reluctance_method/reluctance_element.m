@@ -125,7 +125,7 @@ classdef reluctance_element < handle
             validateattributes(data.mu, {'double'},{'scalar', 'nonnegative', 'nonempty', 'nonnan', 'real','finite'});
             
             % compute reluctance
-            l = data.d_stab;
+            l = data.d_gap;
             A = data.z_core.*data.d_stab;
             R_tmp = reluctance_element.set_R_sub(l, A, data.mu);
         end
