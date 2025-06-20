@@ -17,7 +17,7 @@ conductor.sigma.T_ref = 20.0;
 conductor.mu = 1.0;
 conductor.rho = 8960.0;
 
-A_strand = pi*(d_litz./2).^2;
+A_strand = pi.*(d_litz./2.0).^2;
 n_litz = round(A_litz./A_strand);
 A_litz = n_litz.*pi.*(d_litz./2.0).^2;
 A_wire = A_litz./fill_factor;
